@@ -47,6 +47,8 @@ testRule(rule, {
     code: "a { font-family: Arial, 'Ahem!', sans-serif; }",
   }, {
     code: "a { font-family: 'Hawaii 5-0', Arial, sans-serif; }",
+  }, {
+    code: "a { font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif; }",
   } ],
 
   reject: [ {
@@ -133,6 +135,8 @@ testRule(rule, {
     code: "a { font-family: Arial, \"Ahem!\", sans-serif; }",
   }, {
     code: "a { font-family: \"Hawaii 5-0\", Arial, sans-serif; }",
+  }, {
+    code: "a { font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif; }",
   } ],
 
   reject: [ {
@@ -225,6 +229,8 @@ testRule(rule, {
     code: "a { font-family: Arial, 'Ahem!', sans-serif; }",
   }, {
     code: "a { font-family: 'Hawaii 5-0', Arial, sans-serif; }",
+  }, {
+    code: "a { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif; }",
   } ],
 
   reject: [ {
@@ -335,6 +341,8 @@ testRule(rule, {
     code: "a { font-family: Arial, \"Ahem!\", sans-serif; }",
   }, {
     code: "a { font-family: \"Hawaii 5-0\", Arial, sans-serif; }",
+  }, {
+    code: "a { font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen, Ubuntu, Cantarell, \"Fira Sans\", \"Droid Sans\", \"Helvetica Neue\", sans-serif; }",
   } ],
 
   reject: [ {
@@ -443,6 +451,8 @@ testRule(rule, {
     code: "a { font-family: 'Times', 'Arial', cursive; }",
   }, {
     code: "a { font-family: inherit; }",
+  }, {
+    code: "a { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif; }",
   } ],
 
   reject: [ {
@@ -513,6 +523,8 @@ testRule(rule, {
     code: "a { font-family: \"Times\", \"Arial\", cursive; }",
   }, {
     code: "a { font-family: inherit; }",
+  }, {
+    code: "a { font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Roboto\", \"Oxygen\", \"Ubuntu\", \"Cantarell\", \"Fira Sans\", \"Droid Sans\", \"Helvetica Neue\", sans-serif; }",
   } ],
 
   reject: [ {
