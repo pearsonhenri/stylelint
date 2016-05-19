@@ -1,9 +1,10 @@
 import { vendor } from "postcss"
 import { isObject, find } from "lodash"
 import valueParser from "postcss-value-parser"
-
 import {
   declarationValueIndex,
+  isCustomProperty,
+  isStandardProperty,
   getUnitFromValueNode,
   report,
   ruleMessages,
@@ -26,6 +27,8 @@ export default function (whitelist) {
     if (!validOptions) { return }
 
     root.walkDecls(decl => {
+      if (!isStandardProperty(decl.prop)) { return }
+      if (isCustomProperty(decl.prop)) { return }
 
       const { prop, value } = decl
       const unprefixedProp = vendor.unprefixed(prop)
@@ -35,6 +38,8 @@ export default function (whitelist) {
       if (!propWhitelist) { return }
 
       valueParser(value).walk(function (node) {
+        // Ignore wrong units within `url` function
+        if (node.type === "function" && node.value.toLowerCase() === "url") { return false }
         if (node.type === "string") { return }
 
         const unit = getUnitFromValueNode(node)

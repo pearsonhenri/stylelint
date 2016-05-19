@@ -1,6 +1,8 @@
 import { vendor } from "postcss"
 import { isObject, isEmpty, find } from "lodash"
 import {
+  isCustomProperty,
+  isStandardProperty,
   report,
   ruleMessages,
   validateOptions,
@@ -22,6 +24,8 @@ export default function (blacklist) {
     if (!validOptions) { return }
 
     root.walkDecls(decl => {
+      if (!isStandardProperty(decl.prop)) { return }
+      if (isCustomProperty(decl.prop)) { return }
 
       const { prop, value } = decl
       const unprefixedProp = vendor.unprefixed(prop)
